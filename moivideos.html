@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kenny's Interactive Page</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #bd485b, #572e79);
+            color: #333;
+            text-align: center;
+            transition: background 0.5s, color 0.5s;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        h1:hover {
+            color: #ff6f61;
+        }
+
+        button {
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: #ff6f61;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #e55d4a;
+        }
+
+        video {
+            display: block;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Dark Mode Styles */
+        .dark-mode {
+            background: #2c2c54;
+            color: #f5f5f5;
+        }
+
+        .dark-mode h1:hover {
+            color: #ffd32a;
+        }
+
+        .dark-mode button {
+            background: #ffd32a;
+            color: #2c2c54;
+        }
+
+        .dark-mode button:hover {
+            background: #ffbe0b;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="header">Ahm Kenny</h1>
+    <p id="greeting"></p>
+    <button id="modeToggle">Toggle Dark/Light Mode</button>
+    <video src="Videos/2025-01-08-012009150.mp4" width="190" height="380" controls title="Video 1">1</video>
+    <video src="Videos/dbf90bdc92674db1b94978d33fc88a77.mp4" width="190" height="380" controls title="Video 2">2</video>
+
+    <script>
+        // Dark/Light Mode Toggle
+        const modeToggle = document.getElementById('modeToggle');
+        const body = document.body;
+
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            modeToggle.textContent = body.classList.contains('dark-mode')
+                ? 'Switch to Light Mode'
+                : 'Switch to Dark Mode';
+        });
+
+        // Change Header Text on Click
+        const header = document.getElementById('header');
+        header.addEventListener('click', () => {
+            header.textContent = 'Welcome to Kenny\'s World!';
+        });
+
+        // Dynamic Greeting Based on Time
+        const greeting = document.getElementById('greeting');
+        const hours = new Date().getHours();
+        if (hours < 12) {
+            greeting.textContent = 'Good Morning!';
+        } else if (hours < 18) {
+            greeting.textContent = 'Good Afternoon!';
+        } else {
+            greeting.textContent = 'Good Evening!';
+        }
+    </script>
+</body>
+</html>
+
